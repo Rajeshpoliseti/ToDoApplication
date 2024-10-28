@@ -21,14 +21,12 @@ saveTodobutton.onclick = function() {
     let id;
 
     let successMessage = document.getElementById('successMessage');
-    id = setInterval(function() {
-        successMessage.textContent = "Saved Sucessfully";
-    },1000)
+    successMessage.textContent = "Saved Sucessfully";
 
     setTimeout(function() {
         clearInterval(id); // Stop the interval
         successMessage.textContent = ""; // Optionally clear the message after 3 seconds
-    }, 3000);
+    }, 1000);
 
 
 }
