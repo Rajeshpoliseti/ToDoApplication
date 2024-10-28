@@ -24,8 +24,8 @@ saveTodobutton.onclick = function() {
     successMessage.textContent = "Saved Sucessfully";
 
     setTimeout(function() {
-        clearInterval(id); // Stop the interval
-        successMessage.textContent = ""; // Optionally clear the message after 3 seconds
+        clearInterval(id); 
+        successMessage.textContent = ""; 
     }, 1000);
 
 
@@ -110,57 +110,6 @@ function createAndAppendtodo(todo) {
     labelElement.classList.add("checkbox-lable");
     labelElement.textContent = todo.text;
     lableContainer.appendChild(labelElement);
-
-    
-function editTodo(todoId) {
-    const todoItem = document.getElementById(`todo-${todoId}`);
-    const currentText = todoItem.textContent; 
-
-    
-    const inputField = document.createElement("input");
-    inputField.type = "text";
-    inputField.value = currentText; 
-    inputField.classList.add("edit-input");
-
-    
-    todoItem.innerHTML = ""; 
-    todoItem.appendChild(inputField); 
-
-    
-    const saveButton = document.createElement("button");
-    saveButton.textContent = "Save";
-    saveButton.classList.add("save-button");
-    todoItem.appendChild(saveButton); 
-
-    
-    saveButton.onclick = function() {
-        const newText = inputField.value; 
-        
-        
-        const confirmation = confirm("Are you sure you want to save this change?");
-        if (confirmation) {
-            todoItem.innerHTML = newText; 
-            alert("To-do item updated successfully!"); 
-        } else {
-            inputField.value = currentText; 
-        }
-    };
-}
-
-
-let editContainer = document.createElement("div");
-editContainer.classList.add("edit-icon");
-lableContainer.appendChild(editContainer);
-
-let editIcon = document.createElement("i");
-editIcon.classList.add("far", "fa-edit", "edit-icon"); 
-editContainer.appendChild(editIcon);
-
-editIcon.onclick = function() {
-    editTodo(todoId); 
-};
-
-
 
     let deleteContainer = document.createElement("div");
     deleteContainer.classList.add("delete-icon");
